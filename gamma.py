@@ -2,6 +2,7 @@ import numpy
 from scipy.interpolate import interp1d
 
 def point_gamma(xs, ys, refs, x_value, delta_x, delta_y):
+    """Calculates the 1D gamma value for a single point"""
     dx = numpy.square(xs-x_value)/delta_x**2
     interpolator = interp1d(xs, refs)
     ref_y = interpolator(x_value)
@@ -10,6 +11,7 @@ def point_gamma(xs, ys, refs, x_value, delta_x, delta_y):
 
 
 def full_gamma(xs, ys, refs, delta_x, delta_y):
+    """Calculates the 1D gamma values for an array"""
     g = [point_gamma(xs, ys, refs, x, delta_x, delta_y) for x in xs]
     return g
 
