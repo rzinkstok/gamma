@@ -1,1 +1,1 @@
-from gamma import gamma
+from gamma import *
